@@ -1,4 +1,4 @@
-from qtpy import QtWidgets
+from python_qt_binding import QtWidgets
 
 
 class ColorDialog(QtWidgets.QColorDialog):

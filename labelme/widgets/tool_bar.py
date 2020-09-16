@@ -1,5 +1,5 @@
-from qtpy import QtCore
-from qtpy import QtWidgets
+from python_qt_binding import QtCore
+from python_qt_binding import QtWidgets
 
 
 class ToolBar(QtWidgets.QToolBar):

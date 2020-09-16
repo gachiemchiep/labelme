@@ -7,31 +7,31 @@ import os.path as osp
 import re
 import webbrowser
 
-import imgviz
-from qtpy import QtCore
-from qtpy.QtCore import Qt
-from qtpy import QtGui
-from qtpy import QtWidgets
+# import imgviz
+from python_qt_binding import QtCore
+from python_qt_binding.QtCore import Qt
+from python_qt_binding import QtGui
+from python_qt_binding import QtWidgets
 
-from labelme import __appname__
-from labelme import PY2
-from labelme import QT5
+from libs.labelme.labelme import __appname__
+from libs.labelme.labelme import PY2
+from libs.labelme.labelme import QT5
 
 from . import utils
-from labelme.config import get_config
-from labelme.label_file import LabelFile
-from labelme.label_file import LabelFileError
-from labelme.logger import logger
-from labelme.shape import Shape
-from labelme.widgets import BrightnessContrastDialog
-from labelme.widgets import Canvas
-from labelme.widgets import LabelDialog
-from labelme.widgets import LabelListWidget
-from labelme.widgets import LabelListWidgetItem
-from labelme.widgets import ToolBar
-from labelme.widgets import UniqueLabelQListWidget
-from labelme.widgets import ZoomWidget
-
+from libs.labelme.labelme.config import get_config
+from libs.labelme.labelme.label_file import LabelFile
+from libs.labelme.labelme.label_file import LabelFileError
+from libs.labelme.labelme.logger import logger
+from libs.labelme.labelme.shape import Shape
+from libs.labelme.labelme.widgets import BrightnessContrastDialog
+from libs.labelme.labelme.widgets import Canvas
+from libs.labelme.labelme.widgets import LabelDialog
+from libs.labelme.labelme.widgets import LabelListWidget
+from libs.labelme.labelme.widgets import LabelListWidgetItem
+from libs.labelme.labelme.widgets import ToolBar
+from libs.labelme.labelme.widgets import UniqueLabelQListWidget
+from libs.labelme.labelme.widgets import ZoomWidget
+import numpy as np
 
 # FIXME
 # - [medium] Set max zoom value to something big enough for FitWidth/Window
@@ -42,9 +42,20 @@ from labelme.widgets import ZoomWidget
 # - [low,maybe] Preview images on file dialogs.
 # - Zoom is too "steppy".
 
+# RGB format, (0, 0, 0) used for background
+def genearte_pascal_colormap(size=256):
+    colormap = np.zeros((size, 3), dtype=int)
+    ind = np.arange(size, dtype=int)
 
-LABEL_COLORMAP = imgviz.label_colormap(value=200)
+    for shift in reversed(range(8)):
+        for channel in range(3):
+            colormap[:, channel] |= ((ind >> channel) & 1) << shift
+        ind >>= 3
 
+    return colormap
+
+# LABEL_COLORMAP = imgviz.label_colormap(value=200)
+LABEL_COLORMAP = genearte_pascal_colormap(size=200)
 
 class MainWindow(QtWidgets.QMainWindow):
 

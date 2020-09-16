@@ -1,9 +1,9 @@
-from qtpy import QtCore
-from qtpy.QtCore import Qt
-from qtpy import QtGui
-from qtpy.QtGui import QPalette
-from qtpy import QtWidgets
-from qtpy.QtWidgets import QStyle
+from python_qt_binding import QtCore
+from python_qt_binding.QtCore import Qt
+from python_qt_binding import QtGui
+from python_qt_binding.QtGui import QPalette
+from python_qt_binding import QtWidgets
+from python_qt_binding.QtWidgets import QStyle
 
 
 # https://stackoverflow.com/a/2039745/4158863

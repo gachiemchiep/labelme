@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 
-from qtpy.QtCore import Qt
-from qtpy import QtWidgets
+from python_qt_binding.QtCore import Qt
+from python_qt_binding import QtWidgets
 
 from .escapable_qlist_widget import EscapableQListWidget
 

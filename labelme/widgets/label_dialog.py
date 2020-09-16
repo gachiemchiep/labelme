@@ -1,15 +1,14 @@
 import re
 
-from qtpy import QT_VERSION
-from qtpy import QtCore
-from qtpy import QtGui
-from qtpy import QtWidgets
+from python_qt_binding import QtCore
+from python_qt_binding import QtGui
+from python_qt_binding import QtWidgets
 
 from labelme.logger import logger
 import labelme.utils
 
 
-QT5 = QT_VERSION[0] == "5"
+QT5 = "5"
 
 
 # TODO(unknown):

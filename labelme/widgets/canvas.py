@@ -1,6 +1,6 @@
-from qtpy import QtCore
-from qtpy import QtGui
-from qtpy import QtWidgets
+from python_qt_binding import QtCore
+from python_qt_binding import QtGui
+from python_qt_binding import QtWidgets
 
 from labelme import QT5
 from labelme.shape import Shape
