@@ -99,7 +99,7 @@ class StandardItemModel(QtGui.QStandardItemModel):
     itemDropped = QtCore.Signal()
 
     def removeRows(self, *args, **kwargs):
-        ret = super().removeRows(*args, **kwargs)
+        ret = super(StandardItemModel, self).removeRows(*args, **kwargs)
         self.itemDropped.emit()
         return ret
 
