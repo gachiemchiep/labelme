@@ -2,9 +2,9 @@ from python_qt_binding import QtCore
 from python_qt_binding import QtGui
 from python_qt_binding import QtWidgets
 
-from labelme import QT5
-from labelme.shape import Shape
-import labelme.utils
+from libs.labelme.labelme import QT5
+from libs.labelme.labelme.shape import Shape
+import libs.labelme.labelme.utils
 
 
 # TODO(unknown):

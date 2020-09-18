@@ -4,7 +4,7 @@ import math
 from python_qt_binding import QtCore
 from python_qt_binding import QtGui
 
-import labelme.utils
+import libs.labelme.labelme.utils
 
 
 # TODO(unknown):
